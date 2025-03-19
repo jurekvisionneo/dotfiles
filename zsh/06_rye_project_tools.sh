@@ -64,13 +64,17 @@ function new_rye_project() {
   echo "🐍 Initializing Rye project..."
   rye init
 
-  echo "🔧 Initializing Git..."
-  git init
+  echo "🔧 Adding .gitignore entries..."
   echo ".venv/" >> .gitignore
   echo "__pycache__/" >> .gitignore
   echo "*.pyc" >> .gitignore
+
+  echo "🔧 Initializing Git..."
   git add .
   git commit -m "Initial commit"
+
+  echo "🔧 Renaming Git branch to 'main'..."
+  git branch -m main
 
   echo "🚀 Checking if GitHub repo exists..."
   if gh repo view "$owner/$project_name" &>/dev/null; then
@@ -106,14 +110,16 @@ function new_rye_project() {
   echo "⏳ Waiting for GitHub to process the repo (5 sec)..."
   sleep 5
 
-  echo "🚀 Pulling template files from GitHub..."
+  echo "🚀 Pulling template files from GitHub (if applicable)..."
   git pull origin main --allow-unrelated-histories || { echo "❌ Failed to pull template files!"; return 1; }
 
   echo "💻 Opening in VS Code..."
   code .
 
-  echo "✅ Project $project_name created under $owner ($visibility), synced template, pushed, and opened!"
+  echo "✅ Project $project_name created under $owner ($visibility), pushed, and opened!"
 }
+
+
 
 ### === Function: Pull & Sync Existing Rye Project === ###
 
