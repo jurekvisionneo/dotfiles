@@ -13,7 +13,10 @@ alias docs="cd ~/Documents"
 alias down="cd ~/Downloads"
 alias desk="cd ~/Desktop"
 alias repos="cd ~/Repositories"
-alias dotfiles="code ~/Repositories/dotfiles"
+alias dotfiles="charm ~/Repositories/dotfiles"
+
+# PyCharm
+alias charm="pycharm"
 
 # misc
 alias h='history'
