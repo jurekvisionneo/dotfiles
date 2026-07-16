@@ -13,6 +13,7 @@ alias rad='rye add --dev'
 alias rr='rye remove'
 
 # basic aliases for the uv package manager in python
+export UV_NATIVE_TLS=1  # use system cert store (corporate TLS-inspecting proxy breaks uv's bundled webpki-roots)
 alias us='uv sync'
 alias ui='uv init'
 alias ua='uv add'
